@@ -24,11 +24,11 @@ class Bootstrap
             	controlador.send("set_params", params)
 				rpta_request = controlador.send(metodo, *argumento)
 				@rpta = rpta_request
-			rescue ArgumentError => e#ZeroDivisionError#
+			rescue ZeroDivisionError => e#ArgumentError#
 				@rpta = {:tipo_mensaje => 'error', :rpta_mensaje => "ArgumentError: número de argumentos no coincide"}.to_json
 			rescue ZeroDivisionError => e#NoMethodError#
 				@rpta = {:tipo_mensaje => 'error', :rpta_mensaje => "NoMethodError: método no existe en clase"}.to_json
-			rescue TypeError => e #ZeroDivisionError#
+			rescue ZeroDivisionError => e #TypeError#
 				@rpta = {:tipo_mensaje => 'error', :rpta_mensaje => "TypeError: Método no existe"}.to_json
 			end
 		end
