@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-11-2016 a las 10:30:54
+-- Tiempo de generación: 26-11-2016 a las 00:28:58
 -- Versión del servidor: 5.7.16-0ubuntu0.16.04.1
 -- Versión de PHP: 7.0.8-0ubuntu0.16.04.3
 
@@ -37,6 +37,13 @@ CREATE TABLE `activos` (
   `criticidad_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `activos`
+--
+
+INSERT INTO `activos` (`id`, `codigo`, `descripcion`, `capa_id`, `ubicacion_id`, `tipo_activo_id`, `agente_id`, `criticidad_id`) VALUES
+(1, 'cod', 'Descicsa', 4, 4, 1, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +55,14 @@ CREATE TABLE `activos_amenazas` (
   `activo_id` int(11) NOT NULL,
   `amenaza_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `activos_amenazas`
+--
+
+INSERT INTO `activos_amenazas` (`id`, `activo_id`, `amenaza_id`) VALUES
+(1, 1, 1),
+(2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -61,6 +76,15 @@ CREATE TABLE `activos_controles` (
   `control_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `activos_controles`
+--
+
+INSERT INTO `activos_controles` (`id`, `activo_id`, `control_id`) VALUES
+(1, 1, 1),
+(2, 1, 5),
+(3, 1, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -73,6 +97,14 @@ CREATE TABLE `activos_riesgos` (
   `riesgo_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `activos_riesgos`
+--
+
+INSERT INTO `activos_riesgos` (`id`, `activo_id`, `riesgo_id`) VALUES
+(1, 1, 1),
+(2, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -84,6 +116,14 @@ CREATE TABLE `activos_vulnerabilidades` (
   `activo_id` int(11) NOT NULL,
   `vulnerabilidad_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `activos_vulnerabilidades`
+--
+
+INSERT INTO `activos_vulnerabilidades` (`id`, `activo_id`, `vulnerabilidad_id`) VALUES
+(1, 1, 2),
+(2, 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -132,27 +172,27 @@ ALTER TABLE `activos_vulnerabilidades`
 -- AUTO_INCREMENT de la tabla `activos`
 --
 ALTER TABLE `activos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `activos_amenazas`
 --
 ALTER TABLE `activos_amenazas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `activos_controles`
 --
 ALTER TABLE `activos_controles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `activos_riesgos`
 --
 ALTER TABLE `activos_riesgos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `activos_vulnerabilidades`
 --
 ALTER TABLE `activos_vulnerabilidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
